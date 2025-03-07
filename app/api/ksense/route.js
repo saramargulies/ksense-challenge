@@ -16,11 +16,12 @@ const transporter = nodemailer.createTransport({
 export async function POST(request) {
   let body = await request.json();
   const headersList = headers();
-  let email_body = `THE BODY: ${JSON.stringify(body)} \n `
+  let email_body = `THE BODY: ${JSON.stringify(body)} \n `;
   for (const pair of headersList.entries()) {
-      email_body+=(`${pair[0]}: ${pair[1]} \n`);
-    }
-console.log(email_body)
+    email_body += `${pair[0]}: ${pair[1]} \n`;
+  }
+  console.log("SEEEEEEECRET", process.env.EMAIL_FROM);
+  console.log(email_body);
 
   const mailOptions = {
     from: process.env.EMAIL_FROM,
