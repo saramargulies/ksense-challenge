@@ -20,7 +20,7 @@ export async function POST(request) {
   for (const pair of headersList.entries()) {
       email_body+=(`${pair[0]}: ${pair[1]} \n`);
     }
-// console.log(email_body)
+console.log(email_body)
 
   const mailOptions = {
     from: process.env.EMAIL_FROM,
